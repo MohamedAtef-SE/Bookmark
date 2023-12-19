@@ -8,6 +8,7 @@ var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5
 var arrOfURL = [];
 
 submitButtonMain.disabled = true;
+websiteURLMain.disabled = true;
 submitButtonMain.style.filter = '2px';
 
 var getAllBookMarks = JSON.parse(localStorage.getItem('All Bookmarks'));
@@ -77,6 +78,7 @@ function addNewBookMark() {
 function clearInputs() {
     siteNameMain.value = '';
     websiteURLMain.value = '';
+    websiteURLMain.disabled = true;
 }
 
 function displayAllBookMarks() {
