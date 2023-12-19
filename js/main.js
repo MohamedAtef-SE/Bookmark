@@ -2,7 +2,7 @@ var submitButtonMain = document.getElementById('btn');
 var siteNameMain = document.getElementById('siteName');
 var websiteURLMain = document.getElementById('url');
 var searchBarMain = document.getElementById('searchBar');
-var validURL = /^(ftp|http|https):\/\/[^ "]+$/;
+var validsiteName = /[a-z]{3,}/i;
 var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
 
 var arrOfURL = [];
@@ -153,4 +153,19 @@ function testing() {
 
     }
 
+}
+
+var errorMessage = document.getElementById('errorMsg');
+errorMessage.style.display = 'none';
+function enureInsertedSiteName() {
+    if (validsiteName.test(siteNameMain.value)) {
+        websiteURLMain.disabled = false;
+        errorMessage.style.display = 'none';
+    }
+    else {
+        errorMessage.style.display = 'block';
+        websiteURLMain.disabled = true;
+        submitButtonMain.disabled = true;
+
+    }
 }
