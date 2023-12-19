@@ -2,7 +2,7 @@ var submitButtonMain = document.getElementById('btn');
 var siteNameMain = document.getElementById('siteName');
 var websiteURLMain = document.getElementById('url');
 var searchBarMain = document.getElementById('searchBar');
-var validsiteName = /[a-z]{3,}/i;
+var validsiteName = /[a-zA-Z]{3,}/;
 var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
 
 var arrOfURL = [];
@@ -79,6 +79,7 @@ function clearInputs() {
     siteNameMain.value = '';
     websiteURLMain.value = '';
     websiteURLMain.disabled = true;
+    submitButtonMain.disabled = true;
 }
 
 function displayAllBookMarks() {
