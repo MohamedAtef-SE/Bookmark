@@ -1,0 +1,30 @@
+h1,
+p>i {
+    font-family: 'Merienda', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px gold;
+    transition: .5s;
+    width: fit-content;
+    color: black;
+}
+
+h1:hover {
+    text-shadow: 2px 2px black;
+    color: gold;
+}
+
+
+tbody tr {
+    transition: .3s;
+}
+
+tbody tr:hover {
+    transform: scale(1.025);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.276))
+}
+
+
+button[disabled] {
+    filter: blur(2px);
+}

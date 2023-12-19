@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <link rel="icon" href="./icon.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- ^Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&family=Quantico&display=swap"
+        rel="stylesheet">
+    <!--* Bootstrap Styling Sheet -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--* Main Styling Sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="overflow-hidden container-fluid bg-body-secondary text-center">
+        <h1 class="mt-5 m-auto p-3">Bookmarker</h1>
+        <p class="mt-2 h4 text-capitalize text-secondary fw-bold">
+            <i class="fa-regular fa-bookmark"></i> Bookmark your favorite sites
+            <i class="fa-regular fa-bookmark"></i>
+        </p>
+        <div class="content text-start">
+            <label class="mt-4 fw-bold py-2" for="siteName">Site Name</label>
+            <input class="p-2 w-100" type="text" name="siteName" id="siteName" placeholder="Bookmark Name">
+            <label class="mt-4 fw-bold py-2" for="url">Site URL</label>
+            <input onkeyup="testing()" class="p-2 w-100" type="url" name="url" id="url" placeholder="Website URL">
+            <button onclick="addNewBookMark()" id="btn" class="btn btn-warning my-4 fw-bold">Submit</button>
+            <input onkeyup="searchBookMark()" class="p-2 mb-4 w-100" type="search" name="searchBar" id="searchBar"
+                placeholder="Search By Bookmark Name ....">
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>1</td>
+                    <td class="fw-bold">Bookmark Site Name..</td>
+                    <td><a target="_blank" href="" class="btn btn-secondary fw-bold">Visit</a></td>
+                    <td><button onclick="editBookMark()" class="btn btn-warning fw-bold"><i
+                                class="fa-regular fa-pen-to-square"></i></button></td>
+                    <td><button type="button" class="btn btn-danger fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#Model0">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src=".//js/bootstrap.bundle.min.js"></script>
+    <script src=".//js/main.js"></script>
+</body>
+
+</html>
