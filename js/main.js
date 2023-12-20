@@ -2,14 +2,8 @@ var submitButtonMain = document.getElementById('btn');
 var siteNameMain = document.getElementById('siteName');
 var websiteURLMain = document.getElementById('url');
 var searchBarMain = document.getElementById('searchBar');
-var validsiteName = /[a-zA-Z]{3,}/;
-var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
 
 var arrOfURL = [];
-
-submitButtonMain.disabled = true;
-websiteURLMain.disabled = true;
-submitButtonMain.style.filter = '2px';
 
 var getAllBookMarks = JSON.parse(localStorage.getItem('All Bookmarks'));
 if (getAllBookMarks.length !== 0) {
@@ -148,6 +142,14 @@ function deleteURL(idx) {
     localStorage.setItem('All Bookmarks', JSON.stringify(arrOfURL));
 }
 
+
+
+var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+submitButtonMain.disabled = true;
+websiteURLMain.disabled = true;
+submitButtonMain.style.filter = '2px';
+
+
 function testing() {
     if (validURL.test(websiteURLMain.value.toLowerCase())) {
         submitButtonMain.disabled = false;
@@ -158,8 +160,18 @@ function testing() {
 
 }
 
+
 var errorMessage = document.getElementById('errorMsg');
-errorMessage.style.display = 'none';
+(function () {
+    function displayMode() {
+        errorMessage.style.display = 'none';
+    }
+    displayMode();
+})();
+
+
+
+var validsiteName = /[a-zA-Z]{3,}/;
 function enureInsertedSiteName() {
     if (validsiteName.test(siteNameMain.value)) {
         websiteURLMain.disabled = false;
@@ -169,6 +181,5 @@ function enureInsertedSiteName() {
         errorMessage.style.display = 'block';
         websiteURLMain.disabled = true;
         submitButtonMain.disabled = true;
-
     }
 }
