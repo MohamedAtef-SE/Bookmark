@@ -4,18 +4,19 @@ var websiteURLMain = document.getElementById('url');
 var searchBarMain = document.getElementById('searchBar');
 
 var arrOfURL = [];
-
-var getAllBookMarks = JSON.parse(localStorage.getItem('All Bookmarks'));
-if (getAllBookMarks.length !== 0) {
-    arrOfURL = getAllBookMarks;
-    displayAllBookMarks();
+var getAllBookMarks = JSON.parse(localStorage.getItem('All Bookmarks'));;
+if (getAllBookMarks != null) {
+    if (getAllBookMarks.length != 0) {
+        arrOfURL = getAllBookMarks;
+        displayAllBookMarks();
+    }
 }
 
 
-function searchBookMark() {
+function searchBookMark(searchResualt) {
     var container = '';
     for (var i = 0; i < arrOfURL.length; i++) {
-        if (arrOfURL[i].siteName.trim().toLowerCase().includes(searchBarMain.value.trim().toLowerCase())) {
+        if (arrOfURL[i].siteName.trim().toLowerCase().includes(searchResualt.trim().toLowerCase())) {
             container +=
                 `
             <tr>
@@ -145,13 +146,13 @@ function deleteURL(idx) {
 
 
 var validURL = /^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-submitButtonMain.disabled = true;
-websiteURLMain.disabled = true;
+// submitButtonMain.disabled = true;
+// websiteURLMain.disabled = true;
 submitButtonMain.style.filter = '2px';
 
 
-function testing() {
-    if (validURL.test(websiteURLMain.value.toLowerCase())) {
+function testing(URLValue) {
+    if (validURL.test(URLValue.toLowerCase())) {
         submitButtonMain.disabled = false;
     } else {
         submitButtonMain.disabled = true;
@@ -162,24 +163,25 @@ function testing() {
 
 
 var errorMessage = document.getElementById('errorMsg');
-(function () {
-    function displayMode() {
-        errorMessage.style.display = 'none';
-    }
-    displayMode();
-})();
+// (function () {
+//     function displayMode() {
+//         errorMessage.style.display = 'none';
+//     }
+//     displayMode();
+// })();
 
 
 
 var validsiteName = /[a-zA-Z]{3,}/;
-function enureInsertedSiteName() {
-    if (validsiteName.test(siteNameMain.value)) {
+function enureInsertedSiteName(siteNameValue) {
+    if (validsiteName.test(siteNameValue)) {
         websiteURLMain.disabled = false;
-        errorMessage.style.display = 'none';
+        errorMessage.classList.add('d-none');
     }
     else {
-        errorMessage.style.display = 'block';
+        errorMessage.classList.remove('d-none');
         websiteURLMain.disabled = true;
         submitButtonMain.disabled = true;
     }
 }
+alert('actived');

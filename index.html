@@ -31,16 +31,16 @@
                 </p>
             </div>
             <label class="mt-0 pt-0 fw-bold py-2" for="siteName">Site Name</label>
-            <input onkeyup="enureInsertedSiteName()" class="form-control" type="text" name="siteName" id="siteName"
-                placeholder="Bookmark Name">
+            <input onkeyup="enureInsertedSiteName(this.value)" class="form-control" type="text" name="siteName"
+                id="siteName" placeholder="Bookmark Name">
             <label class="mt-4 fw-bold py-2" for="url">Site URL</label>
-            <input onkeyup="testing()" class="form-control" type="url" id="url" placeholder="https://...."
-                aria-label="Disabled input example">
+            <input onkeyup="testing(this.value)" class="form-control" type="url" id="url" placeholder="https://...."
+                aria-label="Disabled input example" disabled>
 
 
-            <button onclick="addNewBookMark()" id="btn" class="btn btn-warning my-4 fw-bold">Submit</button>
-            <input onkeyup="searchBookMark()" class="form-control mb-4" type="search" name="searchBar" id="searchBar"
-                placeholder="Search By Bookmark Name ....">
+            <button onclick="addNewBookMark()" id="btn" class="btn btn-warning my-4 fw-bold" disabled>Submit</button>
+            <input onkeyup="searchBookMark(this.value)" class="form-control mb-4" type="search" name="searchBar"
+                id="searchBar" placeholder="Search By Bookmark Name ....">
         </div>
         <table class="table table-bordered table-striped">
             <thead>
@@ -67,9 +67,8 @@
             </tbody>
         </table>
     </section>
-
-    <script src=".//js/bootstrap.bundle.min.js"></script>
-    <script src=".//js/main.js"></script>
+    <script src="./js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="./js/main.js" type="text/javascript"></script>
 </body>
 
 </html>
